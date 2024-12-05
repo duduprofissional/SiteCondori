@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Linear</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #007acc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #005a9c;
+        }
+        iframe {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            border: none;
+            margin-bottom: 15px;
+        }
+        code {
+            background-color: #f4f4f4;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programação Linear</h1>
+        <p>Entenda os conceitos fundamentais dessa poderosa ferramenta matemática</p>
+    </header>
+    <main>
+        <section>
+            <h2>O que é Programação Linear?</h2>
+            <p>Programação Linear é uma técnica de otimização matemática utilizada para encontrar a melhor solução possível para problemas que envolvem restrições lineares. É amplamente aplicada em áreas como economia, engenharia, logística e muito mais.</p>
+        </section>
+
+        <section>
+            <h2>Introdução e História</h2>
+            <p>A Programação Linear (PL) surgiu no início do século XX como uma ferramenta para otimização em problemas reais. Foi formalizada por George Dantzig na década de 1940, com o desenvolvimento do Método Simplex, durante a Segunda Guerra Mundial para otimizar recursos militares.</p>
+        </section>
+
+        <section>
+            <h2>Componentes da Programação Linear</h2>
+            <p>Para formular um problema de Programação Linear, você precisa de:</p>
+            <ul>
+                <li><strong>Função Objetivo:</strong> A equação que você quer maximizar ou minimizar (ex.: lucro, custo, tempo).</li>
+                <li><strong>Variáveis de Decisão:</strong> Representam as escolhas possíveis (ex.: quantidade de itens a produzir).</li>
+                <li><strong>Restrições:</strong> Limites matemáticos expressos por desigualdades (ex.: disponibilidade de recursos).</li>
+                <li><strong>Não-Negatividade:</strong> As variáveis de decisão geralmente não podem ser negativas.</li>
+            </ul>
+            <p><strong>Exemplo:</strong></p>
+            <code>
+                Maximizar: Z = 3x + 2y<br>
+                Sujeito a:<br>
+                1. x + y ≤ 4<br>
+                2. 2x + y ≤ 5<br>
+                3. x, y ≥ 0
+            </code>
+        </section>
+
+        <section>
+            <h2>Métodos de Resolução</h2>
+            <p>Os problemas de Programação Linear podem ser resolvidos por diferentes métodos, como:</p>
+            <ul>
+                <li><strong>Método Gráfico:</strong> Ideal para dois ou três parâmetros, pois permite a visualização direta das soluções.</li>
+                <li><strong>Método Simplex:</strong> Um algoritmo iterativo usado para resolver problemas mais complexos.</li>
+                <li><strong>Softwares e Ferramentas:</strong> Solvers como Excel Solver, Python (bibliotecas como PuLP e SciPy), MATLAB e R podem automatizar a resolução.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Aplicações Reais</h2>
+            <p><strong>Logística:</strong> Minimizar custos de transporte.</p>
+            <p><strong>Finanças:</strong> Maximizar retorno de investimentos.</p>
+            <p><strong>Produção:</strong> Otimizar a alocação de recursos para maximizar a produção.</p>
+        </section>
+
+
+
+        <section>
+            <h2>Bibliotecas Python para Programação Linear</h2>
+            <p><strong>PuLP:</strong> É uma biblioteca Python usada para modelar e resolver problemas de otimização linear.</p>
+            <p><strong>Exemplo de código:</strong></p>
+            <code>
+                from pulp import LpMaximize, LpProblem, LpVariable<br>
+                <br>
+                # Criar o problema<br>
+                model = LpProblem(name="programacao-linear", sense=LpMaximize)<br>
+                <br>
+                # Criar variáveis de decisão<br>
+                x = LpVariable(name="x", lowBound=0)<br>
+                y = LpVariable(name="y", lowBound=0)<br>
+                <br>
+                # Adicionar a função objetivo<br>
+                model += 3 * x + 2 * y, "Funcao_Objetivo"<br>
+                <br>
+                # Adicionar restrições<br>
+                model += (x + y <= 4, "Restricao_1")<br>
+                model += (2 * x + y <= 5, "Restricao_2")<br>
+                <br>
+                # Resolver o problema<br>	
+                status = model.solve()<br>
+                <br>
+                # Exibir resultados<br>
+                print(f"Status: {model.status}, Solução: x={x.value()}, y={y.value()}")<br>
+            </code>
+        </section>
+
+        <section>
+            <h2>Links de Ferramentas e Materiais Adicionais</h2>
+            <main>
+        <section>
+            <h2>Vídeos de Referência</h2>
+            <div>
+                <iframe src="https://www.youtube.com/embed/Pi_ZnVd-96Q" title="Introdução à Programação Linear"></iframe>
+            </div>
+            <div>
+                <iframe src="https://www.youtube.com/embed/TX2Ffzx_rDE" title="Programação Linear no Excel"></iframe>
+            </div>
+        </section>
+    </main>
+        </section>
+    </main>
+    <footer>
+        <p>Professor: Condori</p>
+        <p>Aluno: Eduardo Alves Ferreira</p>
+        <p>RA: 1430482313030</p>
+    </footer>
+</body>
+</html>
